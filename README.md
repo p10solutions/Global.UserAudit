@@ -1,5 +1,5 @@
 # Global.UserAudit
-é um microserviço que lida com o dominio de Auditoria dos Usuários, utilizando uma Web API .NET 6.
+É um microserviço que lida com o dominio de Auditoria dos Usuários, utilizando uma Web API .NET 6.
 O microserviço <b>Global.UserAudit</b> se subscreve nas filas de inserção e alteração do microserviço <b>Global.UserManagement.Api</b> (https://github.com/p10solutions/Global.UserManagement) e registra todas as alterações que são realizadas nos registros 
 deste microserviço para possibilitar um controle de auditoria e acesso ao histórico das mundaças.
 Este microserviço utiliza o <b>RabbitMQ</b> para realizar a integração com o microserviço  <b>Global.UserManagement.Api</b>.
