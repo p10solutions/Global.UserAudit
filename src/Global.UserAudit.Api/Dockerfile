@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["Corporation.Register.Task.Api/Corporation.Register.Task.Api.csproj", "Corporation.Register.Task.Api/"]
-RUN dotnet restore "Corporation.Register.Task.Api/Corporation.Register.Task.Api.csproj"
+COPY ["Global.UserAudit.Api/Global.UserAudit.Api.csproj", "Global.UserAudit.Api/"]
+RUN dotnet restore "Global.UserAudit.Api/Global.UserAudit.Api.csproj"
 COPY . .
-WORKDIR "/src/Corporation.Register.Task.Api"
-RUN dotnet build "Corporation.Register.Task.Api.csproj" -c Release -o /app/build
+WORKDIR "/src/Global.UserAudit.Api"
+RUN dotnet build "Global.UserAudit.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Corporation.Register.Task.Api.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "Global.UserAudit.Api.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Corporation.Register.Task.Api.dll"]
+ENTRYPOINT ["dotnet", "Global.UserAudit.Api.dll"]

@@ -9,7 +9,7 @@ using Global.UserAudit.Application.Features.Users.Commands.UserChange;
 
 namespace Global.UserAudit.UnitTest.Application.Features.Tasks.Commands
 {
-    public class UserChangeUnitTest
+    public class UserChangeHandlerUnitTest
     {
         readonly Mock<IUserRepository> _userRepository;
         readonly Mock<ILogger<UserChangeHandler>> _logger;
@@ -17,7 +17,7 @@ namespace Global.UserAudit.UnitTest.Application.Features.Tasks.Commands
         readonly Fixture _fixture;
         readonly UserChangeHandler _handler;
 
-        public UserChangeUnitTest()
+        public UserChangeHandlerUnitTest()
         {
             _userRepository = new Mock<IUserRepository>();
             _logger = new Mock<ILogger<UserChangeHandler>>();

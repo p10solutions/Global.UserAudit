@@ -40,7 +40,7 @@ public class UserUpdatedConsumer : IConsumer<UserUpdatedEvent>
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error:", ex.Message);
+            _logger.LogError(ex, "An error ocurred when try to get the user changed: {exception}", ex.Message);
             await context.NotifyFaulted(timer.Elapsed, TypeMetadataCache<UserInsertedEvent>.ShortName, ex);
         }
     }
